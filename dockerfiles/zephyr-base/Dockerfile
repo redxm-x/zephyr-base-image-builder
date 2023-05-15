@@ -39,6 +39,6 @@ RUN . ~/.bashrc && \
     cd /tmp/zephyr/zephyrproject && \
     west update && \ 
     west zephyr-export && \
-    python3.8 -m pip install -r /tmp/zephyr/zephyrproject/scripts/requirements.txt
+    python3.8 -m pip install -r /tmp/zephyr/zephyrproject/zephyr/scripts/requirements.txt
 RUN wget -O /tmp/zephyr/zephyr-sdk-0.16.1_linux-x86_64.tar.xz https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.1/zephyr-sdk-0.16.1_linux-x86_64.tar.xz
 RUN cd /tmp/zephyr && wget -O - https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.1/sha256.sum | shasum --check --ignore-missing
