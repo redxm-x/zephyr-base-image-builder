@@ -25,8 +25,7 @@ RUN apt install -y --no-install-recommends git \
                                            gcc-multilib \
                                            g++-multilib \
                                            libsdl2-dev \
-                                           libmagic1 \
-                                           shopt
+                                           libmagic1
 
 
 RUN cmake --version
