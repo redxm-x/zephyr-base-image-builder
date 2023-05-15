@@ -37,7 +37,5 @@ RUN echo 'export PATH=~/.local/bin:"$PATH"' >> ~/.bashrc
 RUN . ~/.bashrc
 RUN west init zephyrproject && cd zephyrproject && west update && west zephyr-export
 RUN python3.8 -m pip install -r zephyrproject/zephyr/scripts/requirements.txt
-
 RUN wget -O /tmp/zephyr/zephyr-sdk-0.16.1_linux-x86_64.tar.xz https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.1/zephyr-sdk-0.16.1_linux-x86_64.tar.xz
-RUN wget -O /tmp/zephyr/sha256.sum https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.1/sha256.sum
-RUN /tmp/zephyr/sha256.sum shasum --check --ignore-missing
+RUN cd /tmp/zephyr && wget -O - https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.1/sha256.sum | shasum --check --ignore-missing

@@ -10,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: docker build dockerfiles/zephyr-base -t mredzynia/devops-testing
+      - run: docker build dockerfiles/zephyr-base -t mredzynia/devops-testing:zephyr
