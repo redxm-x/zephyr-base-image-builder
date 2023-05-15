@@ -32,6 +32,6 @@ RUN dtc --version
 RUN apt install -y python3-venv
 RUN python3.8 -m pip install west
 RUN echo 'export PATH=~/.local/bin:"$PATH"' >> ~/.bashrc
-RUN source ~/.bashrc
+RUN . ~/.bashrc
 RUN west init zephyrproject && cd zephyrproject && west update && west zephyr-export
 RUN python3.8 -m pip install -r zephyrproject/zephyr/scripts/requirements.txt
