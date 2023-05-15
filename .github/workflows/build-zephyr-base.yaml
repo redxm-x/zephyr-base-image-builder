@@ -1,0 +1,13 @@
+name: Build Zephyr Base image
+
+on:
+  push:
+    branches: 
+      - zephyr-build
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: docker build dockerfiles/zephyr-base -t mredzynia/devops-testing
