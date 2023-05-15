@@ -7,7 +7,6 @@ RUN apt install -y gcc \
                    gzip \
                    firefox \
                    cmake \
-                   make \
-                   --skip-broken
+                   make
 
 RUN hostname
