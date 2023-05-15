@@ -10,9 +10,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: docker build . -t mredzynia/devops-testing
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
       - run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-      - run: docker push mredzynia/devops-testing:test
+      - run: docker push mredzynia/devops-testing
