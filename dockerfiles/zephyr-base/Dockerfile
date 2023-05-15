@@ -42,3 +42,8 @@ RUN . ~/.bashrc && \
     python3.8 -m pip install -r /tmp/zephyr/zephyrproject/zephyr/scripts/requirements.txt
 RUN wget -O /tmp/zephyr/zephyr-sdk-0.16.1_linux-x86_64.tar.xz https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.1/zephyr-sdk-0.16.1_linux-x86_64.tar.xz
 RUN cd /tmp/zephyr && wget -O - https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.1/sha256.sum | shasum --check --ignore-missing
+RUN cd /tmp/zephyr && tar xvf zephyr-sdk-0.16.1_linux-x86_64.tar.xz -C /opt
+RUN bash /opt/zephyr-sdk-0.16.1/setup.sh
+
+RUN cp /opt/zephyr-sdk-0.16.1/sysroots/x86_64-pokysdk-linux/usr/share/openocd/contrib/60-openocd.rules /etc/udev/rules.d
+RUN udevadm control --reload
