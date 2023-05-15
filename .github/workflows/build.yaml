@@ -9,7 +9,7 @@ jobs:
 
     runs-on: ubuntu-latest
 
-  steps:
-    - uses: actions/checkout@v2
-    - name: Build docker image using Dockerfile
-    - run: docker build . -t redxm-x/devops-stuff 
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build docker image using Dockerfile
+      - run: docker build . -t redxm-x/devops-stuff 
