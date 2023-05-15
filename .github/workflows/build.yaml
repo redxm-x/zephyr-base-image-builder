@@ -10,9 +10,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: docker build . -t redxm-x/devops-stuff
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
       - run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-      - run: docker push redxm-x/devops-stuff:latest
+      - run: docker push mredzynia/devops-testing:test
