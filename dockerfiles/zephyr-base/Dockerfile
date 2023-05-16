@@ -32,7 +32,7 @@ RUN cmake --version
 RUN python3 --version
 RUN dtc --version
 RUN apt install -y python3-venv
-RUN python3.8 -m pip install west docutils==18.04
+RUN python3.8 -m pip install west docutils==0.18
 RUN echo 'export PATH=~/.local/bin:"$PATH"' >> ~/.bashrc
 RUN . ~/.bashrc && \
     west init /tmp/zephyr/zephyrproject && \ 
