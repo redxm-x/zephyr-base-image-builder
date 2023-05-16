@@ -48,5 +48,5 @@ RUN cd /tmp/zephyr && wget -O - https://github.com/zephyrproject-rtos/sdk-ng/rel
 RUN cd /tmp/zephyr && tar xvf zephyr-sdk-0.16.1_linux-x86_64.tar.xz -C /opt
 RUN cd /opt/zephyr-sdk-0.16.1 && bash setup.sh -h
 
-RUN cp /opt/zephyr-sdk-0.16.1/sysroots/x86_64-pokysdk-linux/usr/share/openocd/contrib/60-openocd.rules /etc/udev/rules.d
-RUN udevadm control --reload
+# RUN cp /opt/zephyr-sdk-0.16.1/sysroots/x86_64-pokysdk-linux/usr/share/openocd/contrib/60-openocd.rules /etc/udev/rules.d
+# RUN udevadm control --reload
