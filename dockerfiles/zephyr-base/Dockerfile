@@ -32,14 +32,13 @@ RUN cmake --version
 RUN python3 --version
 RUN dtc --version
 RUN apt install -y python3-venv
-RUN python3.8 -m pip install west
+RUN python3.8 -m pip install west docutils==18.04
 RUN echo 'export PATH=~/.local/bin:"$PATH"' >> ~/.bashrc
 RUN . ~/.bashrc && \
     west init /tmp/zephyr/zephyrproject && \ 
     cd /tmp/zephyr/zephyrproject && \
     west update && \ 
     west zephyr-export && \
-    python3.8 -m pip install docutils==18.04 \
     python3.8 -m pip install -r /tmp/zephyr/zephyrproject/zephyr/scripts/requirements.txt
 RUN wget -O /tmp/zephyr/zephyr-sdk-0.16.1_linux-x86_64.tar.xz https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.1/zephyr-sdk-0.16.1_linux-x86_64.tar.xz
 RUN cd /tmp/zephyr && wget -O - https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.1/sha256.sum | shasum --check --ignore-missing
