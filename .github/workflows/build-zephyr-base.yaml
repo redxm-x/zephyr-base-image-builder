@@ -3,7 +3,7 @@ name: Build Zephyr Base image
 on:
   push:
     branches: 
-      - zephyr-build
+      - zephyr-build*
 
 jobs:
   build:

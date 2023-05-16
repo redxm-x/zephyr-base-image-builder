@@ -27,7 +27,8 @@ RUN apt install -y --no-install-recommends git \
                                            gcc-multilib \
                                            g++-multilib \
                                            libsdl2-dev \
-                                           libmagic1
+                                           libmagic1 \
+                                           udev
 
 
 RUN cmake --version
