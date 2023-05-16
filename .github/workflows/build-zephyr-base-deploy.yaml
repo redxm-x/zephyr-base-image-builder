@@ -21,4 +21,5 @@ jobs:
       - run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
       - run: docker image pull mredzynia/devops-testing:zephyr
       - run: docker run -i -d -t --name "zephyr-build" mredzynia/devops-testing:zephyr
-      - run: docker exec -it zephyr-build /bin/bash -c "ls /tmp/zephyr/* | grep zephyr"
+      - run: docker exec -it zephyr-build /bin/bash -c "ls /tmp/zephyr/*/*"
+      - run: docker exec -it zephyr-build /bin/bash -c "ls /opt | grep zephyr"
