@@ -1,0 +1,15 @@
+name: Build and Deploy Zephyr base image into dockerhub
+
+on:
+  push:
+    branches: 
+      - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: docker build dockerfiles/zephyr-base -t mredzynia/devops-testing:zephyr
+      - run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+      - run: docker push mredzynia/devops-testing:zephyr
