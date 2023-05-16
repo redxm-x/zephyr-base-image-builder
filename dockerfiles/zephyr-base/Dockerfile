@@ -14,12 +14,14 @@ RUN apt install -y --no-install-recommends git \
                                            ccache \
                                            dfu-util \ 
                                            device-tree-compiler \
-                                           wget \ 
                                            python3-dev \
                                            python3-pip \
                                            python3-setuptools \
-                                           python3-tk python3-wheel \
-                                           xz-utils file \
+                                           python3-tk \
+                                           python3-wheel \
+                                           xz-utils \
+                                           file \
+                                           libpython3.8-dev \
                                            make \
                                            gcc \
                                            gcc-multilib \
@@ -43,7 +45,7 @@ RUN . ~/.bashrc && \
 RUN wget -O /tmp/zephyr/zephyr-sdk-0.16.1_linux-x86_64.tar.xz https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.1/zephyr-sdk-0.16.1_linux-x86_64.tar.xz
 RUN cd /tmp/zephyr && wget -O - https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.1/sha256.sum | shasum --check --ignore-missing
 RUN cd /tmp/zephyr && tar xvf zephyr-sdk-0.16.1_linux-x86_64.tar.xz -C /opt
-RUN . ~/.bashrc && cd /opt/zephyr-sdk-0.16.1 && bash setup.sh
+RUN cd /opt/zephyr-sdk-0.16.1 && bash setup.sh
 
 RUN cp /opt/zephyr-sdk-0.16.1/sysroots/x86_64-pokysdk-linux/usr/share/openocd/contrib/60-openocd.rules /etc/udev/rules.d
 RUN udevadm control --reload
